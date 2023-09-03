@@ -26,8 +26,6 @@
 \usepackage{mathtools}
 
 \usepackage{xeCJK}
-\setCJKmainfont{Hiragino Mincho Pro} % for Cn & Jp
-\setCJKmonofont{AppleMyungjo} % for Kr
 
 % tikz drawing packages
 \usetikzlibrary{arrows.meta}
@@ -204,11 +202,93 @@
 	\includegraphics[width=12cm]{Chap1/1-1}\\
 	Figure 1-1: World lines of observer $A$ in $S$ and $B$ in $S'$, $S'$ is moving away from $S$ with a speed $v$ in $x$ direction. The light rays form an angle of $\pi/4$ with respect to the $x$-axis as we are using the natural unit where $c:=1$.
 	\end{center}
-	In Fig 2.7 of 1-1, we see that A sent 2 light rays to $B$ with a time interval $T$. It is reasonable to assume that the interval between receiving two light rays measured by $B$ is $kT$, proportional to $T$ by a constant $k$. Obviously, $k$-factor is a quantity that is characteristic of the motion of $B$ relative to $A$. We also assume that if $A$ and $B$ are inertial observers, $k$ is constant in time. While doing this, we are implicitly assuming a linear relationship between the space and time coordinates of $A$ and $B$.
+	
+	In Fig 2.7 of 1-1, we see that A sent 2 light rays to $B$ with a time interval $T$. It is reasonable to assume that the interval between receiving two light rays measured by $B$ is $kT$, proportional to $T$ by a constant $k$. Obviously, $k$-factor is a quantity that is characteristic of the motion of $B$ relative to $A$. We also assume that if $A$ and $B$ are inertial observers, $k$ is constant in time. While doing this, we are implicitly assuming a linear relationship between the space and time coordinates of $A$ and $B$.\\\rule{\linewidth}{0.65pt}
+	
+	\begin{multicols}{2}
+	For simplicity of calculation, we use the configuration described by the figure below.
+	\begin{center}
+	\includegraphics[width=6cm]{Chap1/1-2}\\
+	Fig 1-2. assume that $A$ and $B$ synchronize their clocks to zero when they cross at event $O$. After a time $T$, $A$ sends a signal to $B$, which is reflected back at event $P$. From $B$'s pointof view, a light signal is sent to $A$ after a time lapse of $kT$ by $B$'s clock.
+	\end{center}
+	There are two ways of calculating the $k$-factor, with or without the Lorentz Transform.\\
+
+	\bluebf{Method 1}\\
+	
+	In this method, we calculate the coordinate of $P$ in $A$'s frame, and apply Lorentz transformation to obtain the time interval measured with $B$'s watch. Let $A_s$ be the event where $A$ sends the signal and $A_r$ be the time $A$ receives the signal from $B$.
+	
+	We have:
+	\begin{align*}
+	A_sP:~~&t = x+T\\
+	OP:~~	&t = \frac{x}{v}
+	\end{align*}
+	calculate the coordinate of intersection $P$, we obtain:
+	\begin{align*}
+	t_P = \frac{1}{1-v}T, x_P = \frac{v}{1-v}T\\
+	A_rP:~~ -1(t - t_P) = x - x_P
+	\end{align*}
+	This gives $k^2T$, or the length of $A_rO$:
+	\begin{align*}
+	k^2T = \frac{1+v}{1-v}T
+	\end{align*}
+	We can confirm that the calculation of $k$ is correct by doing the following. With the coordinate of $P$, apply Lorentz transformation:
+	\begin{align*}
+	t_P' =& \frac{t_P - vx_P}{\sqrt{1 - v^2}} = \sqrt{\frac{1+v}{1-v}}T\\
+	x_P' =& t_P' = \frac{x_P - vt_P}{\sqrt{1 - v^2}} = 0	
+	\end{align*}
+	Therefore, from the perspective of $B$, he did not move in his frame while his time advanced by $\sqrt{\frac{1+v}{1-v}}T$. The calculation in $B$'s frames gives the value of $k$ while the calculation in $A$'s frame gives the value of $k^2$. Since $k_A^2 = k_B^2$, we confirm the calculation result to be correct. \\
+	Note, when $B$ is approaching $A$, we can easily obtain the value of $k$ by switching $v$ to $-v$.\\
+
+	\bluebf{Method 2 (book method)}\\
+	
+	We can simply mark the coordinate the coordinate of P according to $A$'s clock:
+	\begin{align*}
+	(t_P, x_P)_A = \cb{\frac{1}{2}(k^2+1)T, \frac{1}{2}(k^2-1)T}
+	\end{align*}
+	we can get velocity form linearity in assumption:
+	\begin{align*}
+	v = \frac{x}{t} = \sqrt{\frac{1+v}{1-v}}T
+	\end{align*}
+	Note, we require $k>1$ for separating observers and $k<1$ for approaching observers. This is the commonly known ``Doppler Shift'', while $k>1$ represents a \color{red}redshift\black, and $k<1$ represents a \blue blueshift\black.
+	\end{multicols}
+
+	\newpage
+	\section{Composition Laws for Velocities}
+	Consider the configuration described in Figure 1-3.
+	\begin{center}
+	\includegraphics[width=6cm]{Chap1/1-3}\\
+	Figure 1-3: In this configuration, there are 3 observers $A,B,C$. $k_{AB}$ denotes the $k$-factor between $A$ and $B$, with $k_{AC}$ and $k_{BC}$ defined similarly. 
+	\end{center}
+	It follows immediately that	
+	\begin{align*}
+	k_{AC} = k_{AB}k_{BC}\\
+	v_{AC} = \frac{v_{AB}+v_{BC}}{1-v_{AB}v_{BC}}
+	\end{align*}
+	In the classical limit where $v_{AB}, v_{BC}\ll 1$, we have:
+	\begin{align*}
+	v_{AC} = v_{AB}+v_{BC}
+	\end{align*}
+	When either $V_{AB}$ or $V_{BC}$ is the velocity of light, we have:
+	\begin{align*}
+	v_{AC} = 1
+	\end{align*}
 	
 	
+From the composition law, we can show that, fi we add two speeds less than the speed of light, then we again obtain a speed less than the speed of light. This does not mean, as is sometimes stated, that nothing can move faster than the speed of light in special relativity, but rather that the speed of light is a border which can not be crossed or even reached. More precisely, special relativity allows for the existence of three classes of particles: \textbf{subluminal, luminal, and superluminal}.
+
+	\section{Relativity of Simultaneity and Clock Paradox}
+	Please refer to \textit{d'Inverno's book section 2.10-2.11} for this. It is straight forward and easy to understand.
+	
+	The most intriguing concept to me here is the definition of causality and causal contact.
+	\begin{center}
+	\includegraphics[width=8cm]{Chap1/1-4}
+	\end{center}
+
 	\chapter{Key Attributes of Special Relativity}
+	
 	\section{Standard Derivation of Lorentz Transformations}
+	
+	\section{}
 	
 	
 \end{document}
